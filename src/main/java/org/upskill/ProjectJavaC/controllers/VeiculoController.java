@@ -24,8 +24,8 @@ public class VeiculoController {
     }
 
     @PostMapping("/car")
-    public Veiculo salvarVeiculo(@RequestBody Veiculo veiculo) {
-        return veiculoService.salvarVeiculo(veiculo);
+    public Veiculo salvarVeiculo(@RequestBody Veiculo veiculo, @RequestParam Long brandId, @RequestParam Long modelId) {
+        return veiculoService.salvarVeiculo(veiculo, brandId, modelId);
     }
 
     @DeleteMapping("/{id}")

@@ -1,3 +1,4 @@
+
 package org.upskill.ProjectJavaC.models;
 
 import jakarta.persistence.*;
@@ -12,6 +13,14 @@ public class Veiculo {
     private String licensePlate;
     private int numberOfSeats;
     private int doors;
+
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
+
+    @ManyToOne
+    @JoinColumn(name ="model_id" )
+    private Model model;
 
     @Enumerated(EnumType.STRING)
     private Color color;
@@ -106,5 +115,18 @@ public class Veiculo {
                 '}';
     }
 
+    public Brand getBrand(){
+        return brand;
+    }
+    public void setBrand(Brand brand) {
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
 }
 
